@@ -65,7 +65,8 @@ namespace WeatherAPI
 
         private void Search_Clicked(object sender, EventArgs a)
         {
-            var client = new RestClient("https://api.openweathermap.org/data/2.5/weather?q=" + Name.Text + "&appid=" + key + "&units=metric");
+            string city = _search.Text;
+            var client = new RestClient("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key + "&units=metric");
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             var content = response.Content;
@@ -80,10 +81,12 @@ namespace WeatherAPI
 
         private void Parameters_Clicked(object sender, EventArgs a)
         {
+            Application.Quit();
         }
 
         private void Weekly_Clicked(object sender, EventArgs a)
         {
+            Application.Quit();
         }
     }
 }
