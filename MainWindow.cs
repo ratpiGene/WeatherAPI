@@ -40,6 +40,8 @@ namespace WeatherAPI
         [UI] private Temperature _temperature = null;
         [UI] private Desc _desc = null;
         [UI] private Label _condition = null;
+        [UI] private Parameters _parameters = null;
+        [UI] private Weekly _weekly = null;
 
 
 
@@ -51,7 +53,9 @@ namespace WeatherAPI
 
             DeleteEvent += Window_DeleteEvent;
             Search.Clicked += Search_Clicked;
-            
+            Parameters.Clicked += Parameters_Clicked;
+            Weekly.Clicked += Weekly_Clicked;
+
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -61,7 +65,14 @@ namespace WeatherAPI
 
         private void Search_Clicked(object sender, EventArgs a)
         {
-            ;
+        }
+
+        private void Parameters_Clicked(object sender, EventArgs a)
+        {
+        }
+
+        private void Weekly_Clicked(object sender, EventArgs a)
+        {
         }
     }
 }
