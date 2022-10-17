@@ -32,6 +32,7 @@ namespace WeatherAPI
     public class MainWindow : Window
     {
         [UI] private Search _search = null;
+        [UI] private Name _name = null;
         [UI] private Icon _icon = null;
         [UI] private Humidity _humidity = null;
         [UI] private Lat _lat = null;
