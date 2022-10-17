@@ -43,9 +43,9 @@ namespace WeatherAPI
         [UI] private Parameters _parameters = null;
         [UI] private Weekly _weekly = null;
 
+        var key = File.ReadAllText("C:\\Users\\emman\\Desktop\\Ynov-B2\\WeatherAPI\\config\\api.txt");
 
-
-        public MainWindow() : this(new Builder("MainWindow.glade")) { }
+        public MainWindow() : this(new Builder("MainWindow.glade")) {}
 
         private MainWindow(Builder builder) : base(builder.GetRawOwnedObject("MainWindow"))
         {
@@ -65,6 +65,17 @@ namespace WeatherAPI
 
         private void Search_Clicked(object sender, EventArgs a)
         {
+            var client = new RestClient("https://api.openweathermap.org/data/2.5/weather?q=" + Name.Text + "&appid=" + key + "&units=metric");
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            var weather = JsonConvert.DeserializeObject<WeatherInfo.root>(content);
+            Icon.Text = weather.weather[0].icon;
+            Humidity.Text = weather.main.humidity.ToString();
+            Lat.Text = weather.coord.lat.ToString();
+            Lon.Text = weather.coord.lon.ToString();
+            Temperature.Text = weather.main.temp.ToString();
+            Desc.Text = weather.weather[0].description;
         }
 
         private void Parameters_Clicked(object sender, EventArgs a)
