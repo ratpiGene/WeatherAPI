@@ -48,6 +48,10 @@ namespace WeatherAPI
         private MainWindow(Builder builder) : base(builder.GetRawOwnedObject("MainWindow"))
         {
             builder.Autoconnect(this);
+
+            DeleteEvent += Window_DeleteEvent;
+            Search.Clicked += Search_Clicked;
+            
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -57,7 +61,7 @@ namespace WeatherAPI
 
         private void Search_Clicked(object sender, EventArgs a)
         {
-            _label1.Text = "Hello World! This button has been clicked " + _counter + " time(s).";
+            ;
         }
     }
 }
