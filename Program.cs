@@ -1,7 +1,9 @@
 using System;
 using Gtk;
+using System.Net;
+using System.Net.Http;
 
-namespace WeatherAPI
+namespace Application_meteo_csharp
 {
     class Program
     {
@@ -10,10 +12,10 @@ namespace WeatherAPI
         {
             Application.Init();
 
-            var app = new Application("org.WeatherAPI.WeatherAPI", GLib.ApplicationFlags.None);
+            var app = new Application("org.app_meteo_csharp.app_meteo_csharp", GLib.ApplicationFlags.None);
             app.Register(GLib.Cancellable.Current);
 
-            var win = new MainWindow();
+            var win = new Appmeteo();
             app.AddWindow(win);
 
             win.Show();
