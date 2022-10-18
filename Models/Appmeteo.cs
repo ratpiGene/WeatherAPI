@@ -173,7 +173,9 @@ namespace Application_meteo_csharp
         
         
         private void SearchBar_Entered(object sender, EventArgs a)
-        {       
+        {  //mettre sa route 
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer("C:\\Users\\emman\\Desktop\\Ynov-B2\\WeatherAPI\\sound\\meteogulli.wav");  
+            player.Play();     
             int count = 0;
             string message;
             string result = searchbar.Text;
